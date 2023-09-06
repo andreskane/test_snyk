@@ -1,0 +1,1 @@
+ALTER TABLE accion_apm DROP COLUMN destinatarios;

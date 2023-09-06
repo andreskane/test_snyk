@@ -1,0 +1,1 @@
+ALTER TABLE doctor ADD  DEFAULT 1 FOR categoria_id;

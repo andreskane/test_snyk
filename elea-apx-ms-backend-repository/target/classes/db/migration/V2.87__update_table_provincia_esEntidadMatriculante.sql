@@ -1,0 +1,1 @@
+update provincia set EsEntidadMatriculanteProvincial = 0 where inactivo = 0;

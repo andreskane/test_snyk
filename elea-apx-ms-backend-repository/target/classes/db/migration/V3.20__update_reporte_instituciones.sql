@@ -1,0 +1,1 @@
+UPDATE REPORTE SET filtro = 0 where nombre like 'Listado de instituciones';

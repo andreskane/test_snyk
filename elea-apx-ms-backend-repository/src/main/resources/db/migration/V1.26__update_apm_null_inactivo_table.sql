@@ -1,0 +1,1 @@
+UPDATE apm SET inactivo = 0 WHERE inactivo IS NULL;

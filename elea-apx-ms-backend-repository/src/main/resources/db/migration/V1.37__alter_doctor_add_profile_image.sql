@@ -1,0 +1,1 @@
+ALTER TABLE doctor ADD profile_image varbinary(max) NULL GO

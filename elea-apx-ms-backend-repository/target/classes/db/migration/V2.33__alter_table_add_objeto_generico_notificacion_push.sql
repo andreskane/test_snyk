@@ -1,0 +1,1 @@
+ALTER TABLE notificacion_push ADD objeto_generico varchar(700) NULL;

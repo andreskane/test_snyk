@@ -1,0 +1,1 @@
+update usuario set rol = 'GERENTE_REGIONAL' where rol is null go

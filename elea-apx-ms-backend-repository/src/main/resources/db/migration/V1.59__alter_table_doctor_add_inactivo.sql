@@ -1,0 +1,1 @@
+alter table doctor add inactivo bit default 0 go

@@ -1,0 +1,1 @@
+DROP PROCEDURE IF EXISTS calcular_prescripciones_doctor;

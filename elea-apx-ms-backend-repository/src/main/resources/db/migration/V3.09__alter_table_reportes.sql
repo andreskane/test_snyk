@@ -1,0 +1,1 @@
+ALTER TABLE reporte ADD filtro bit DEFAULT 0 NULL GO

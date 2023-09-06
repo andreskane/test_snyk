@@ -1,0 +1,3 @@
+ALTER TABLE feedback ALTER COLUMN comentario VARCHAR(2000) NULL
+go
+

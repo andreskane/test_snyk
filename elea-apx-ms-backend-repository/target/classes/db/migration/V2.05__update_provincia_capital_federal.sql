@@ -1,0 +1,1 @@
+UPDATE provincia SET NOMBRE='Ciudad Autónoma de Buenos Aires' WHERE UPPER(NOMBRE) LIKE 'CAPITAL FEDERAL';
