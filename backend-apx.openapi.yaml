@@ -1,0 +1,2797 @@
+openapi: 3.0.1
+info:
+  title: backend-apx-dev
+  description: ''
+  version: '1.0'
+servers:
+  - url: https://api-mgm-apx.azure-api.net
+paths:
+  /authenticate:
+    post:
+      summary: Authenticate
+      description: Authenticate
+      operationId: authenticate
+      parameters:
+        - name: Content-Type
+          in: header
+          description: ''
+          schema:
+            enum:
+              - ''
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /sendpassword:
+    post:
+      summary: Request Password
+      description: Request Password
+      operationId: request-password
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            enum:
+              - ''
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /apms:
+    get:
+      tags:
+        - apm
+      summary: Get Logged APM Profile
+      description: Get Logged APM Profile
+      operationId: get-logged-apm-profile
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - apm
+      summary: Create APM
+      description: Create APM
+      operationId: create-apm
+      responses:
+        '200':
+          description: 'null'
+  /apms/list:
+    get:
+      tags:
+        - apm
+      summary: List APMs
+      description: List APMs
+      operationId: list-apms
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: apellido
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+              - ''
+              - ''
+              - ''
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /apms/image:
+    get:
+      tags:
+        - apm
+      summary: Get Logged APM Profile Picture
+      description: Get Logged APM Profile Picture
+      operationId: get-logged-apm-profile-picture
+      responses:
+        '200':
+          description: 'null'
+  '/apms/{id}':
+    delete:
+      tags:
+        - apm
+      summary: Delete apm
+      description: Delete apm
+      operationId: delete-apm
+      parameters:
+        - name: id
+          in: path
+          description: El ID del APM que va a ser dado de baja
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - apm
+      summary: GET APM by Id
+      description: GET APM by Id
+      operationId: get-apm-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/apms/{id}/image':
+    post:
+      tags:
+        - apm
+      summary: Upload APM Image
+      description: 'Upload imagen del APM '
+      operationId: upload-apm-image
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - apm
+      summary: GET APM Profile Image
+      description: GET APM Image by Id
+      operationId: get-apm-profile-image
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /agendas:
+    get:
+      tags:
+        - agendas
+      summary: Get Logged APM Agendas Entry
+      description: Get Logged APM Agenda
+      operationId: get-logged-apm-agenda
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - agendas
+      summary: Create or Update Logged APM Agenda
+      description: Create or Update APM Agenda
+      operationId: create-or-update-apm-agenda
+      responses:
+        '200':
+          description: 'null'
+    delete:
+      tags:
+        - agendas
+      summary: Delete Agendas
+      description: Marca como dada de baja entredas en agenda
+      operationId: delete-agendas
+      responses:
+        '200':
+          description: 'null'
+    put:
+      tags:
+        - agendas
+      summary: Actualizar entrada en agenda APM
+      description: Actualizar entrada en agenda APM
+      operationId: actualizar-entrada-en-agenda-apm
+      responses:
+        '200':
+          description: 'null'
+  '/agendas/visitas/apm/{apmId}':
+    get:
+      tags:
+        - agendas
+      summary: Get Visitas APM
+      description: Get Visitas APM
+      operationId: get-visitas-apm
+      parameters:
+        - name: apmId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/agendas/visitas/doctor/{doctorId}':
+    get:
+      tags:
+        - agendas
+      summary: Get Visitas Doctor
+      description: Get Visitas Doctor
+      operationId: get-visitas-doctor
+      parameters:
+        - name: doctorId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /administradores:
+    get:
+      tags:
+        - administradores
+      summary: Get Administradores
+      description: Get Administradores
+      operationId: get-administradores
+      responses:
+        '200':
+          description: 'null'
+  /agendas/visitas:
+    get:
+      tags:
+        - agendas
+      summary: Get Visitas of Others APM
+      description: Get Visitas of Others APM
+      operationId: get-visitas-of-others-apm
+      responses:
+        '200':
+          description: 'null'
+  '/apms/visitas/doctor/{doctorId}':
+    get:
+      tags:
+        - agendas
+      summary: Get Apm Visitas to Doctor
+      description: Get the Visitas made by the logged apm to certain doctor
+      operationId: get-apm-visitas-to-doctor
+      parameters:
+        - name: doctorId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /apms/visitas:
+    get:
+      tags:
+        - agendas
+      summary: Get Visitas of Logged APM
+      description: Get Visitas of Logged APM
+      operationId: get-visitas-of-logged-apm
+      responses:
+        '200':
+          description: 'null'
+  /ciclos:
+    get:
+      tags:
+        - ciclos
+      summary: List all the cycles
+      description: List all the cycles
+      operationId: list-all-the-cycles
+      responses:
+        '200':
+          description: 'null'
+  /ciclos/actual:
+    get:
+      tags:
+        - ciclos
+      summary: Get Current Cycle
+      description: Get Current Cycle
+      operationId: get-current-cycle
+      responses:
+        '200':
+          description: 'null'
+  /doctors:
+    post:
+      tags:
+        - doctores
+      summary: Create new Doctor
+      description: Create new Doctor
+      operationId: create-new-doctor
+      responses:
+        '200':
+          description: 'null'
+  /doctors/apm:
+    post:
+      tags:
+        - cartera_medica
+      summary: Create APM Doctor Relationship
+      description: Create APM Doctor Relationship
+      operationId: create-apm-doctor-relationship
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - doctores
+      summary: Get APM Assigned Doctors
+      description: Get APM Assigned Doctors
+      operationId: get-apm-assigned-doctors
+      responses:
+        '200':
+          description: 'null'
+  '/doctors/{id}':
+    get:
+      tags:
+        - doctores
+      summary: Get Doctor by Id
+      description: Get Doctor by Id
+      operationId: get-doctor-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+    delete:
+      tags:
+        - doctores
+      summary: Delete Doctor by Id
+      description: Delete Doctor by Id
+      operationId: delete-doctor-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /doctors/list:
+    get:
+      tags:
+        - doctores
+      summary: List and filter Doctors
+      description: List and filter Doctors
+      operationId: list-and-filter-doctors
+      responses:
+        '200':
+          description: 'null'
+  '/doctors/matricula/{tipo}/{numero}':
+    get:
+      tags:
+        - doctores
+      summary: Get Doctors by Matricula and Tipo
+      description: Get Doctors by Matricula and Tipo
+      operationId: get-doctors-by-matricula-and-tipo
+      parameters:
+        - name: tipo
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: numero
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /especialidades:
+    get:
+      tags:
+        - especialidades
+      summary: Get Especialidades Medicas
+      description: Get Especialidades Medicas
+      operationId: get-especialidades-medicas
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - especialidades
+      summary: Create Especialidad
+      description: Create Especialidad
+      operationId: create-especialidad
+      responses:
+        '200':
+          description: 'null'
+  /sub_especialidades:
+    get:
+      tags:
+        - sub_especialidades
+      summary: Get Sub Especialidades Medicas
+      description: Get Sub Especialidades Medicas
+      operationId: get-sub-especialidades-medicas
+      responses:
+        '200':
+          description: 'null'
+  /sub_especialidades/list:
+    get:
+      tags:
+        - sub_especialidades
+      summary: Obtener sub especialidad por especialidad
+      description: Obtener sub especialidad por especialidad
+      operationId: Obtener-sub-especialidad-por-especialidad
+      responses:
+        '200':
+          description: 'null'
+  /eventos:
+    get:
+      tags:
+        - eventos
+      summary: Get Eventos
+      description: Get Eventos
+      operationId: get-eventos
+      responses:
+        '200':
+          description: 'null'
+  /gerentes:
+    get:
+      tags:
+        - gerentes
+      summary: Get Gerentes
+      description: Get Gerentes
+      operationId: get-gerentes
+      responses:
+        '200':
+          description: 'null'
+  '/gerentes/{id}':
+    get:
+      tags:
+        - gerentes
+      summary: Get Gerente by Id
+      description: Get Gerente by Id
+      operationId: get-gerentes-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /instituciones:
+    get:
+      tags:
+        - instituciones
+      summary: Get Instituciones
+      description: Get Instituciones
+      operationId: get-instituciones
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - instituciones
+      summary: Crear Institucion
+      description: Crear Institucion
+      operationId: crear-institucion
+      responses:
+        '200':
+          description: 'null'
+  /motivos:
+    get:
+      tags:
+        - motivos
+      summary: Get motivos
+      description: Get motivos
+      operationId: get-motivos
+      responses:
+        '200':
+          description: 'null'
+  '/motivos/{tipoMotivo}':
+    get:
+      tags:
+        - motivos
+      summary: Get motivos by type
+      description: Get motivos by type
+      operationId: get-motivos-by-type
+      parameters:
+        - name: tipoMotivo
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /productos:
+    get:
+      tags:
+        - productos
+      summary: Get productos
+      description: Get productos
+      operationId: get-productos
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - productos
+      summary: crear o actualizar producto
+      description: crear o actualizar producto
+      operationId: crear-o-actualizar-producto
+      requestBody:
+        content:
+          application/json:
+            example:
+              id: 1
+              nombre: 'Ibuprofeno '
+              descripcion: Alivia el dolor y baja la inflamación
+              abreviatura: IBPF
+      responses:
+        '200':
+          description: 'null'
+  /provincias:
+    get:
+      tags:
+        - provincias
+      summary: Get provincias
+      description: Get provincias
+      operationId: get-provincias
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - provincias
+      summary: Crear o Actualizar Provincia
+      description: Crear o Actualizar Provincia
+      operationId: crear-o-actualizar-provincia
+      requestBody:
+        content:
+          application/json:
+            example:
+              id: 1
+              nombre: BUENOS AIRES
+      responses:
+        '200':
+          description: 'null'
+  /recordatorios:
+    get:
+      tags:
+        - recordatorios
+      summary: Get Recordatorios for Logged APM
+      description: Get Recordatorios for Logged APM
+      operationId: get-recordatorios-for-logged-apm
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - recordatorios
+      summary: Create Recordatorios for Logged APM
+      description: Create Recordatorios for Logged APM
+      operationId: create-recordatorios-for-logged-apm
+      responses:
+        '200':
+          description: 'null'
+    delete:
+      tags:
+        - recordatorios
+      summary: Delete Recordatorios for Logged APM
+      description: delete Recordatorios for Logged APM
+      operationId: delete-recordatorios-for-logged-apm
+      responses:
+        '200':
+          description: 'null'
+  '/recordatorios/{agendaId}':
+    get:
+      tags:
+        - recordatorios
+      summary: Get Recordatorios for provided Agenda Id
+      description: Get Recordatorios for provided Agenda Id
+      operationId: get-recordatorios-for-provided-agenda-id
+      parameters:
+        - name: agendaId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/tags/{type}':
+    get:
+      tags:
+        - tags
+      summary: Get Tags
+      description: Get Tags
+      operationId: get-tags
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /usuarios:
+    post:
+      tags:
+        - usuarios
+      summary: Create or Update Usuario
+      description: Create or Update Usuario
+      operationId: create-or-update-usuario
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - usuarios
+      summary: Get Usuarios
+      operationId: get-usuarios
+      parameters:
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /usuarios/list:
+    get:
+      tags:
+        - usuarios
+      summary: List Usuarios
+      description: List Usuarios
+      operationId: list-usuarios
+      responses:
+        '200':
+          description: 'null'
+  '/doctors/{id}/image':
+    post:
+      tags:
+        - doctores
+      summary: Upload doctor Image
+      description: Upload doctor Image
+      operationId: upload-doctor-image
+      parameters:
+        - name: id
+          in: path
+          description: Doctors id
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - doctores
+      summary: Get Doctor Profile Image
+      description: Get Doctor Profile Image
+      operationId: get-doctor-profile-image
+      parameters:
+        - name: id
+          in: path
+          description: Doctors id
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /material_promocional:
+    post:
+      tags:
+        - material_promocional
+      summary: Crear Material Promocional
+      description: Crear Material Promocional
+      operationId: crear-material-promocional
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - material_promocional
+      summary: Get Material Promocional
+      description: Get Material Promocional
+      operationId: get-material-promocional
+      responses:
+        '200':
+          description: 'null'
+  '/material_promocional/{id}/file':
+    post:
+      tags:
+        - material_promocional
+      summary: Subir archivo del material promocional
+      description: Subir archivo del material promocional
+      operationId: subir-archivo-del-material-promocional
+      parameters:
+        - name: id
+          in: path
+          description: Id del material promocional
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - material_promocional
+      summary: get material_promocional file
+      description: get material_promocional file
+      operationId: get-material-promocional-file
+      parameters:
+        - name: id
+          in: path
+          description: Identificador del material promocional
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /material_promocional/tipo:
+    get:
+      tags:
+        - material_promocional
+      summary: Obtener tipos de material promocional
+      description: Obtener tipos de material promocional
+      operationId: obtener-tipos-de-material-promocional
+      responses:
+        '200':
+          description: 'null'
+  /usuarios/ad:
+    get:
+      tags:
+        - usuarios
+      summary: Find Users Registered in AD
+      description: Find Users Registered in AD
+      operationId: find-users-registered-in-ad
+      responses:
+        '200':
+          description: 'null'
+  '/material_promocional/{id}':
+    delete:
+      tags:
+        - material_promocional
+      summary: Delete Material Promocional
+      description: Delete Material Promocional
+      operationId: delete-material-promocional
+      parameters:
+        - name: id
+          in: path
+          description: Identificador del material promocional
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /material_promocional/list:
+    get:
+      tags:
+        - material_promocional
+      summary: Listado de material promocional
+      description: Lisado del material promocional con paginado y filtrado
+      operationId: listado-de-material-promocional
+      responses:
+        '200':
+          description: 'null'
+  /material_promocional/apm:
+    get:
+      tags:
+        - material_promocional
+      summary: Obtener el Material Promocional del Apm
+      description: Obtener el Material Promocional del Apm
+      operationId: obtener-el-material-promocional-del-apm
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - material_promocional
+      summary: Actualizacion del Material Promocional del Apm
+      description: Actualizacion del Material Promocional del Apm
+      operationId: actualizacion-del-material-promocional-del-apm
+      responses:
+        '200':
+          description: 'null'
+  '/doctors/{id}/apm':
+    delete:
+      tags:
+        - cartera_medica
+      summary: Solicitar Baja de Cartera medica
+      description: Solicitar Baja de Cartera medica
+      operationId: solicitar-baja-de-cartera-medica
+      parameters:
+        - name: id
+          in: path
+          description: ID Doctor del cual se solicita baja de la cartera médica
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+    get:
+      tags:
+        - cartera_medica
+      summary: Listar apms asignados al doctor
+      description: Listar apms asignados al doctor
+      operationId: listar-apms-asignados-al-doctor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /solicitudes/list:
+    get:
+      tags:
+        - solicitudes
+      summary: Listar y filtrar solicitudes
+      description: Listar y filtrar solicitudes
+      operationId: listar-y-filtrar-solicitudes
+      parameters:
+        - name: estado
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+              - ''
+            type: ''
+        - name: tipo
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+            type: ''
+        - name: id_gerente_regional
+          in: query
+          schema:
+            type: ''
+        - name: id_apm
+          in: query
+          schema:
+            type: ''
+        - name: fecha_carga_desde
+          in: query
+          schema:
+            type: ''
+        - name: fecha_carga_hasta
+          in: query
+          schema:
+            type: ''
+        - name: fecha_confirmacion_desde
+          in: query
+          schema:
+            type: ''
+        - name: fecha_confirmacion_hasta
+          in: query
+          schema:
+            type: ''
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /solicitudes:
+    post:
+      tags:
+        - solicitudes
+      summary: Aprobar/Rechazar solicitudes
+      description: Aprobar/Rechazar solicitudes
+      operationId: aprobar-rechazar-solicitudes
+      responses:
+        '200':
+          description: 'null'
+  '/prescripciones/{doctorId}':
+    get:
+      tags:
+        - prescripciones
+      summary: Prescripciones doctor
+      description: Prescripciones doctor
+      operationId: preescripciones-doctor
+      parameters:
+        - name: doctorId
+          in: path
+          description: system id of the doctor
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /material_promocional/lineas:
+    get:
+      tags:
+        - material_promocional
+      summary: Listar lineas de material promocional
+      description: Listar lineas de material promocional
+      operationId: listar-lineas-de-material-promocional
+      responses:
+        '200':
+          description: 'null'
+  /doctors/doctor_app:
+    post:
+      tags:
+        - doctores
+      summary: Carga de archivo Doctor app
+      description: Carga de archivo Doctor app
+      operationId: carga-de-archivo-doctor-app
+      responses:
+        '200':
+          description: 'null'
+  /material_promocional/grilla_promocional:
+    get:
+      tags:
+        - grilla_promocional
+      summary: Descarga de Grilla Promocional
+      description: Descarga de Grilla Promocional
+      operationId: descarga-de-grilla-promocional
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - grilla_promocional
+      summary: Carga de archivo Grilla Promocional
+      description: Carga de archivo Grilla Promocional
+      operationId: carga-de-archivo-grilla-promocional
+      responses:
+        '200':
+          description: 'null'
+  /material_promocional/compartir:
+    post:
+      tags:
+        - material_promocional
+      summary: Compartir material promocional
+      description: Compartir material promocional
+      operationId: compartir-material-promocional
+      responses:
+        '200':
+          description: 'null'
+  /prescripciones/ultimos_trimestres:
+    get:
+      tags:
+        - prescripciones
+      summary: obtener Ultimos Trimestres de Preescripciones
+      description: obtener Ultimos Trimestres de Preescripciones
+      operationId: obtener-ultimos-trimestres-de-preescripciones
+      responses:
+        '200':
+          description: 'null'
+  '/doctors/apm/{id}':
+    get:
+      tags:
+        - cartera_medica
+      summary: Listar Doctores asignados al apm
+      description: Listar Doctores asignados al apm
+      operationId: listar-doctores-asignados-al-apm
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: pagina
+          in: query
+          schema:
+            type: int
+        - name: cantidad
+          in: query
+          schema:
+            type: int
+      responses:
+        '200':
+          description: 'null'
+  '/agendas/apm/{id}/list':
+    get:
+      tags:
+        - agendas
+      summary: Listar Actividades APM
+      description: Listar Actividades APM
+      operationId: listar-actividades-apm
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /notificaciones/email:
+    post:
+      tags:
+        - notificaciones
+      summary: envio de email
+      description: envio de email
+      operationId: envio-de-email
+      responses:
+        '200':
+          description: 'null'
+  '/agendas/export/ciclo/{id_ciclo}':
+    get:
+      tags:
+        - exports
+      summary: Exportar actividades ciclo
+      description: Exportar actividades ciclo
+      operationId: exportar-actividades-ciclo
+      parameters:
+        - name: id_ciclo
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/doctors/duplicados/{criterio}':
+    get:
+      tags:
+        - doctores
+      summary: Buscar duplicaddos
+      description: Buscar duplicaddos
+      operationId: buscar-duplicaddos
+      parameters:
+        - name: criterio
+          in: path
+          required: true
+          schema:
+            enum:
+              - MATRICULA_EXACTA
+              - MATRICULA_SOLO_NUMEROS
+              - DATOS_PERSONALES_EXACTO
+              - DATOS_PERSONALES_PRIMERAS_5_LETRAS
+            type: enum
+        - name: pagina
+          in: query
+          schema:
+            type: integer
+        - name: cantidad
+          in: query
+          schema:
+            type: integer
+        - name: gerente_regional
+          in: query
+          schema:
+            type: integer
+        - name: apm
+          in: query
+          schema:
+            type: integer
+        - name: especialidad
+          in: query
+          schema:
+            type: integer
+        - name: especialidad_visita
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'null'
+  '/usuarios/{id}':
+    get:
+      tags:
+        - usuarios
+      summary: get usuario by id
+      description: get usuario by id
+      operationId: get-usuario-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+    delete:
+      tags:
+        - usuarios
+      summary: baja logica usuario
+      description: baja logica usuario
+      operationId: baja-logica-usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /productos/list:
+    get:
+      tags:
+        - productos
+      summary: lista paginado producto
+      description: lista paginado producto
+      operationId: lista-paginado-producto
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: inactivo
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/productos/{id}':
+    delete:
+      tags:
+        - productos
+      summary: baja logica producto
+      description: baja logica producto
+      operationId: baja-logica-producto
+      parameters:
+        - name: id
+          in: path
+          description: id del producto
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /motivos/parte_diario/list:
+    get:
+      tags:
+        - motivos_parte_diario
+      summary: Listado Paginado y Filtrado de Motivos de Parte Diario
+      description: Listado Paginado y Filtrado de Motivos de Parte Diario
+      operationId: listado-paginado-y-filtrado-de-motivos-de-parte-diario
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: inactivo
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /motivos/parte_diario:
+    post:
+      tags:
+        - motivos_parte_diario
+      summary: Creacion y Actualizacion de Motivo de Parte Diario
+      description: Creacion y Actualizacion de Motivo de Parte Diario
+      operationId: creacion-y-actualizacion-de-motivo-de-parte-diario
+      requestBody:
+        content:
+          application/json:
+            example:
+              nombre: Nuevo motivo
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                id: 1
+                nombre: Nuevo motivo
+                tipo:
+                  id: 2
+                  nombre: PARTE_DIARIO
+                inactivo: false
+  '/motivos/parte_diario/{id}':
+    delete:
+      tags:
+        - motivos_parte_diario
+      summary: Baja de Motivo de Parte Diario
+      description: Baja de Motivo de Parte Diario
+      operationId: baja-de-motivo-de-parte-diario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: ''
+        '404':
+          description: el codigo no existe
+        '409':
+          description: el codigo existe pero no es un parte diario
+  '/instituciones/{id_institucion}/apm/{id_apm}':
+    post:
+      tags:
+        - apm_institucion
+      summary: Asociar APM Institucion
+      description: Asociar APM Institucion
+      operationId: asociar-apm-institucion
+      parameters:
+        - name: id_institucion
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: id_apm
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+    delete:
+      tags:
+        - apm_institucion
+      summary: Borrar asociacion APM Institucion
+      description: Borrar asociacion APM Institucion
+      operationId: borrar-asociacion-apm-institucion
+      parameters:
+        - name: id_institucion
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: id_apm
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/instituciones/apm/{id}':
+    get:
+      tags:
+        - apm_institucion
+      summary: Listar instituciones Apm
+      description: Listar instituciones Apm
+      operationId: listar-instituciones-apm
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/instituciones/nombre/{nombre}':
+    get:
+      tags:
+        - instituciones
+      summary: Buscar instituciones por nombre
+      description: Buscar instituciones por nombre
+      operationId: buscar-instituciones-por-nombre
+      parameters:
+        - name: nombre
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /doctors/fusion:
+    post:
+      tags:
+        - doctores
+      summary: Fusion doctores
+      description: Fusion doctores
+      operationId: fusion-doctores
+      responses:
+        '200':
+          description: 'null'
+  /agendas/previsto/aprobacion:
+    get:
+      tags:
+        - agendas
+      summary: Listar previstos pendientes de aprobacion
+      description: Listar previstos pendientes de aprobacion
+      operationId: listar-previstos-pendientes-de-aprobacion
+      responses:
+        '200':
+          description: 'null'
+  '/agendas/previsto/aprobacion/{idAgenda}/{accepted}':
+    put:
+      tags:
+        - agendas
+      summary: Aprobar Rechazar Previsto
+      description: Aprobar Rechazar Previsto
+      operationId: aprobar-rechazar-previsto
+      parameters:
+        - name: idAgenda
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: accepted
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/apms/{apmId}/doctor/{doctorId}':
+    get:
+      tags:
+        - cartera_medica
+      summary: Get apm doctor relationship info
+      description: Get apm doctor relationship info
+      operationId: get-apm-doctor-relationship-info
+      parameters:
+        - name: apmId
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: doctorId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/doctors/{idDoctor}/apm/{idApm}':
+    delete:
+      tags:
+        - cartera_medica
+      summary: Crear Baja Doctor Apm
+      description: Crear Baja Doctor Apm
+      operationId: crear-baja-doctor-apm
+      parameters:
+        - name: idDoctor
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: idApm
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /authenticate/web:
+    post:
+      tags:
+        - authentication
+      summary: Login apx web
+      description: Login apx web
+      operationId: login-apx-web
+      responses:
+        '200':
+          description: 'null'
+  '/agendas/visitas/doctor/{id}/list':
+    get:
+      tags:
+        - agendas
+      summary: List Visitas Doctor
+      description: List Visitas Doctor
+      operationId: list-visitas-doctor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+              - ''
+              - ''
+              - ''
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /instituciones/list:
+    get:
+      tags:
+        - instituciones
+      summary: List Instituciones
+      description: List Instituciones
+      operationId: list-instituciones
+      responses:
+        '200':
+          description: 'null'
+  /instituciones/categorias:
+    get:
+      tags:
+        - instituciones
+      summary: get categorias instituciones
+      description: get categorias instituciones
+      operationId: get-categorias-instituciones
+      responses:
+        '200':
+          description: 'null'
+  /instituciones/tipos:
+    get:
+      tags:
+        - instituciones
+      summary: get tipos instituciones
+      description: get tipos instituciones
+      operationId: get-tipos-instituciones
+      responses:
+        '200':
+          description: 'null'
+  '/provincias/apm/{id}':
+    get:
+      tags:
+        - provincias
+      summary: Get Provincias APM
+      description: Get Provincias APM
+      operationId: get-provincias-apm
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /provincias/list:
+    get:
+      tags:
+        - provincias
+      summary: List Provincias
+      description: List Provincias
+      operationId: list-provincias
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /localidades:
+    get:
+      tags:
+        - localidades
+      summary: Obtener todas las localidades
+      description: Obtener todas las localidades
+      operationId: obtener-todas-las-localidades
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - localidades
+      summary: Crear o Actualizar Localidad
+      description: Crear o Actualizar Localidad
+      operationId: crear-o-actualizar-localidad
+      requestBody:
+        content:
+          application/json:
+            example:
+              nombre: localidad 8
+              provincia:
+                id: 3
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                id: 5
+                nombre: localidad 8
+                provincia:
+                  id: 3
+                  nombre: 
+  '/localidades/provincia/{id}':
+    get:
+      tags:
+        - localidades
+      summary: Obtener todas las localidades de provincia
+      description: Obtener todas las localidades de provincia
+      operationId: obtener-todas-las-localidades-de-provincia
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/localidades/apm/{id}':
+    get:
+      tags:
+        - localidades
+      summary: Obtener todas las localidades de un APM
+      description: Obtener todas las localidades de un APM
+      operationId: obtener-todas-las-localidades-de-un-apm
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/localidades/provincia/{idProvincia}/apm/{idApm}':
+    get:
+      tags:
+        - localidades
+      summary: Obtener todas las localidades de provincia para un APM
+      description: Obtener todas las localidades de provincia para un APM
+      operationId: obtener-todas-las-localidades-de-provincia-para-un-apm
+      parameters:
+        - name: idProvincia
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: idApm
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /localidades/list:
+    get:
+      tags:
+        - localidades
+      summary: Listar Localidades
+      description: Listar Localidades
+      operationId: listar-localidades
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /ciudades:
+    get:
+      tags:
+        - ciudades
+      summary: Obtener todas las ciudades
+      description: Obtener todas las ciudades
+      operationId: obtener-todas-las-ciudades
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - ciudades
+      summary: Crear o Actualizar Ciudad
+      description: Crear o Actualizar Ciudad
+      operationId: crear-o-actualizar-ciudad
+      requestBody:
+        content:
+          application/json:
+            example:
+              nombre: CIUDAD 30
+              localidad:
+                id: 3
+      responses:
+        '200':
+          description: 'null'
+  '/ciudades/localidad/{id}':
+    get:
+      tags:
+        - ciudades
+      summary: Obtener todas las ciudades de localidad
+      description: Obtener todas las ciudades de localidad
+      operationId: obtener-todas-las-ciudades-de-localidad
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/ciudades/provincia/{id}':
+    get:
+      tags:
+        - ciudades
+      summary: Obtener todas las ciudades de provincia
+      description: Obtener todas las ciudades de provincia
+      operationId: obtener-todas-las-ciudades-de-provincia
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/ciudades/provincia/{idProvincia}/apm/{idApm}':
+    get:
+      tags:
+        - ciudades
+      summary: Obtener todas las ciudades de provincia para apm
+      description: Obtener todas las ciudades de provincia para apm
+      operationId: obtener-todas-las-ciudades-de-provincia-para-apm
+      parameters:
+        - name: idProvincia
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: idApm
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /ciudades/list:
+    get:
+      tags:
+        - ciudades
+      summary: Listar ciudades
+      description: Listar ciudades
+      operationId: listar-ciudades
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/calles/ciudad/{id}':
+    get:
+      tags:
+        - calles
+      summary: Obtener todas las calles de ciudad
+      description: Obtener todas las calles de ciudad
+      operationId: obtener-todas-las-calles-de-ciudad
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /calles:
+    get:
+      tags:
+        - calles
+      summary: Obtener todas las calles
+      description: Obtener todas las calles
+      operationId: obtener-todas-las-calles
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - calles
+      summary: Crear o Actualizar Calle
+      description: Crear o Actualizar Calle
+      operationId: crear-o-actualizar-calle
+      responses:
+        '200':
+          description: 'null'
+  '/calles/ciudad/{idCiudad}/apm/{idApm}':
+    get:
+      tags:
+        - calles
+      summary: Obtener todas las calles de ciudad para Apm
+      description: Obtener todas las calles de ciudad para Apm
+      operationId: obtener-todas-las-calles-de-ciudad-para-apm
+      parameters:
+        - name: idCiudad
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: idApm
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /calles/list:
+    get:
+      tags:
+        - calles
+      summary: Listar calles
+      description: Listar calles
+      operationId: listar-calles
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /calles/tipos:
+    get:
+      tags:
+        - tipos_calle
+      summary: Obtener todos los tipos de calles
+      description: Obtener todos los tipos de calles
+      operationId: obtener-todos-los-tipos-de-calles
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - tipos_calle
+      summary: Crear o Actualizar Tipo Calle
+      description: Crear o Actualizar Tipo Calle
+      operationId: crear-o-actualizar-tipo-calle
+      responses:
+        '200':
+          description: 'null'
+  /cpas:
+    get:
+      tags:
+        - cpas
+      summary: Obtener todas las cpas
+      description: Obtener todas las cpas
+      operationId: obtener-todas-las-cpas
+      responses:
+        '200':
+          description: 'null'
+    post:
+      tags:
+        - cpas
+      summary: Crear o Actualizar CPA
+      description: Crear o Actualizar CPA
+      operationId: crear-o-actualizar-cpa
+      requestBody:
+        content:
+          application/json:
+            example:
+              cpa: H3705XEY
+              provincia:
+                id: 525
+              localidad:
+                id: 669
+              ciudad:
+                id: 10158
+              calle:
+                id: 107192
+              desde: 0
+              hasta: 0
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                id: 2539328
+                cpa: H3705XEY
+  '/cpas/apm/{id}':
+    get:
+      tags:
+        - cpas
+      summary: Obtener todas las cpas de apm
+      description: Obtener todas las cpas de apm
+      operationId: obtener-todas-las-cpas-de-apm
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/cpas/provincia/{provinciaId}/ciudad/{ciudadId}/calle/{calleId}/numero/{numero}':
+    get:
+      tags:
+        - cpas
+      summary: Obtener CPA para direccion
+      description: Obtener CPA para direccion
+      operationId: obtener-cpa-para-direccion
+      parameters:
+        - name: provinciaId
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: ciudadId
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: calleId
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: numero
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /cpas/list:
+    get:
+      tags:
+        - cpas
+      summary: List CPAs
+      description: List CPAs
+      operationId: list-cpas
+      parameters:
+        - name: pagina
+          in: query
+          schema:
+            type: ''
+        - name: cantidad
+          in: query
+          schema:
+            type: ''
+        - name: provincia
+          in: query
+          schema:
+            type: ''
+        - name: localidad
+          in: query
+          schema:
+            type: ''
+        - name: ciudad
+          in: query
+          schema:
+            type: ''
+        - name: calle
+          in: query
+          schema:
+            type: ''
+        - name: cpa
+          in: query
+          schema:
+            type: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/provincias{id}':
+    delete:
+      tags:
+        - provincias
+      summary: Marcar Provincia Inactiva
+      description: Marcar Provincia Inactiva
+      operationId: marcar-provincia-inactiva
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/localidades/{id}':
+    delete:
+      tags:
+        - localidades
+      summary: Marcar Localidad Inactiva
+      description: Marcar Localidad Inactiva
+      operationId: marcar-localidad-inactiva
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/ciudades/{id}':
+    delete:
+      tags:
+        - ciudades
+      summary: Marcar Ciudad Inactiva
+      description: Marcar Ciudad Inactiva
+      operationId: marcar-ciudad-inactiva
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/calles/{id}':
+    delete:
+      tags:
+        - calles
+      summary: Marcar Calle Inactiva
+      description: Marcar Calle Inactiva
+      operationId: marcar-calle-inactiva
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  '/calles/tipos/{id}':
+    delete:
+      tags:
+        - tipos_calle
+      summary: Marcar Tipo Calle Inactivo
+      description: Marcar Tipo Calle Inactivo
+      operationId: marcar-tipo-calle-inactivo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 'null'
+  /cpas/apm:
+    post:
+      tags:
+        - cpas
+      summary: Asociar CPA a APM
+      description: Asociar CPA a APM
+      operationId: asociar-cpa-a-apm
+      requestBody:
+        content:
+          application/json:
+            example:
+              apm:
+                id: 1
+              cpa:
+                id: 10
+      responses:
+        '200':
+          description: 'null'
+  /carterasmedicas/list:
+    get:
+      tags:
+        - cartera_medica
+      summary: List Carteras Medicas
+      description: List Carteras Medicas
+      operationId: list-carteras-medicas
+      parameters:
+        - name: apmNombre
+          in: query
+          schema:
+            type: ''
+        - name: apmApellido
+          in: query
+          schema:
+            type: ''
+        - name: doctorNombre
+          in: query
+          schema:
+            type: ''
+        - name: doctorApellido
+          in: query
+          schema:
+            type: ''
+        - name: matricula
+          in: query
+          schema:
+            type: ''
+        - name: enteEmisorId
+          in: query
+          schema:
+            type: ''
+        - name: especialidadId
+          in: query
+          schema:
+            type: ''
+        - name: inactivo
+          in: query
+          schema:
+            type: ''
+        - name: gerenteNombre
+          in: query
+          schema:
+            type: ''
+        - name: gerenteApellido
+          in: query
+          schema:
+            type: ''
+        - name: frecuencia
+          in: query
+          schema:
+            type: ''
+        - name: semaforo
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+              - ''
+            type: ''
+        - name: provinciaId
+          in: query
+          schema:
+            type: ''
+        - name: localidadId
+          in: query
+          schema:
+            type: ''
+        - name: ciudadId
+          in: query
+          schema:
+            type: ''
+        - name: calleId
+          in: query
+          schema:
+            type: ''
+        - name: codigoPostal
+          in: query
+          schema:
+            type: ''
+        - name: institucionId
+          in: query
+          schema:
+            type: ''
+        - name: turno
+          in: query
+          schema:
+            type: ''
+        - name: pagina
+          in: query
+          schema:
+            enum:
+              - ''
+            type: ''
+            default: ''
+        - name: cantidad
+          in: query
+          schema:
+            enum:
+              - ''
+            type: ''
+            default: ''
+        - name: orderBy
+          in: query
+          schema:
+            type: ''
+        - name: direction
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+            type: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                carterasMedicas:
+                  - apmApellido: LEGUIZAMON
+                    apmId: 1
+                    apmNombre: JUAN
+                    calleDireccion: 
+                    ciudadDireccion: 
+                    doctorApellido: SKULL
+                    doctorId: 2798
+                    doctorNombre: GAY
+                    enteEmisor: CHACO
+                    especialidadDoctor: 
+                    especialidadVisita: OFTALMOPEDIATRIA
+                    frecuencia: 4
+                    gerenteRegionalApellido: REGIONAL
+                    gerenteRegionalId: 2830
+                    gerenteRegionalNombre: GERENTE
+                    id: 24
+                    localidadDireccion: 
+                    matriculaNacional: '1597720'
+                    matriculaProvincial: '5363966'
+                    numeroDireccion: 
+                    prescripciones: 
+                    provinciaDireccion: 
+                    ultimaVisitaCartera: 
+                    visitasCiclo: 0
+                  - apmApellido: LEGUIZAMON
+                    apmId: 1
+                    apmNombre: JUAN
+                    calleDireccion: 
+                    ciudadDireccion: 
+                    doctorApellido: ROBBERTS
+                    doctorId: 2024
+                    doctorNombre: LUCIEN
+                    enteEmisor: FORMOSA
+                    especialidadDoctor: 
+                    especialidadVisita: CLINICA MEDICA
+                    frecuencia: 4
+                    gerenteRegionalApellido: REGIONAL
+                    gerenteRegionalId: 2830
+                    gerenteRegionalNombre: GERENTE
+                    id: 25
+                    localidadDireccion: 
+                    matriculaNacional: '8266320'
+                    matriculaProvincial: '9774302'
+                    numeroDireccion: 
+                    prescripciones: 
+                    provinciaDireccion: 
+                    ultimaVisitaCartera: 
+                    visitasCiclo: 0
+                  - apmApellido: LEGUIZAMON
+                    apmId: 1
+                    apmNombre: JUAN
+                    calleDireccion: 
+                    ciudadDireccion: 
+                    doctorApellido: GABBETT
+                    doctorId: 2480
+                    doctorNombre: JENN
+                    enteEmisor: FORMOSA
+                    especialidadDoctor: 
+                    especialidadVisita: NEFROLOGIA
+                    frecuencia: 1
+                    gerenteRegionalApellido: REGIONAL
+                    gerenteRegionalId: 2830
+                    gerenteRegionalNombre: GERENTE
+                    id: 26
+                    localidadDireccion: 
+                    matriculaNacional: '1959648'
+                    matriculaProvincial: '1349980'
+                    numeroDireccion: 
+                    prescripciones: 
+                    provinciaDireccion: 
+                    ultimaVisitaCartera: 
+                    visitasCiclo: 0
+                paginas: 19522
+                total: 58565
+                totalCarteras: 58574
+  '/agendas/visitas/doctor/{doctorId}/apm/{apmid}/list':
+    get:
+      tags:
+        - agendas
+        - administradores
+        - visitas
+      summary: List visitas doctor apm
+      operationId: list-visitas-doctor-apm
+      parameters:
+        - name: doctorId
+          in: path
+          required: true
+          schema:
+            type: ''
+        - name: apmid
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /agendas/v2:
+    get:
+      tags:
+        - agendas
+      summary: Get Logged APM Agendas
+      operationId: get-logged-apm-agendas
+      responses:
+        '200':
+          description: 
+  /cp:
+    get:
+      tags:
+        - codigos_postales
+      summary: Find CPs
+      operationId: find-cps
+      parameters:
+        - name: provincia
+          in: query
+          schema:
+            type: ''
+        - name: localidad
+          in: query
+          schema:
+            type: ''
+        - name: ciudad
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  '/cp/apm/{apmId}':
+    post:
+      tags:
+        - codigos_postales
+      summary: Associate CP to APM
+      operationId: associate-cp-to-apm
+      parameters:
+        - name: apmId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+    get:
+      tags:
+        - codigos_postales
+      summary: Get CP assigned to apm
+      operationId: get-cp-assigned-to-apm
+      parameters:
+        - name: apmId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+    delete:
+      tags:
+        - codigos_postales
+      summary: Unassign CPs from APM
+      operationId: unassign-cps-from-apm
+      parameters:
+        - name: apmId
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /transfers:
+    post:
+      tags:
+        - transferencias
+      summary: Create Transfers
+      operationId: create-transfers
+      requestBody:
+        content:
+          application/json:
+            example:
+              transfers:
+                - carteraId: 74
+                  apmDestino:
+                    id: 1
+                  tipo: COPIA
+                  fechaProgramada: '2020-04-10T00:00:00.0000000+00:00'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                transfers:
+                  - id: 10
+    delete:
+      tags:
+        - transferencias
+      summary: Borrar transferencias pendientes
+      operationId: borrar-transferencias-pendientes
+      requestBody:
+        content:
+          application/json:
+            example:
+              transfers:
+                - id: 10
+      responses:
+        '200':
+          description: ''
+    put:
+      tags:
+        - transferencias
+      summary: Ejecutar transferencias pendientes
+      operationId: ejecutar-transferencias-pendientes
+      responses:
+        '200':
+          description: 
+  /transfers/pending:
+    get:
+      tags:
+        - transferencias
+      summary: Pending transfers
+      operationId: pending-transfers
+      responses:
+        '200':
+          description: 
+  '/transfers/{id}':
+    delete:
+      tags:
+        - transferencias
+      summary: Borrar transferencia pendiente
+      operationId: borrar-transferencia-pendiente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  '/reporte/{nombre}':
+    post:
+      tags:
+        - reportes
+      summary: Reportes
+      operationId: reportes
+      parameters:
+        - name: nombre
+          in: path
+          required: true
+          schema:
+            type: String
+      responses:
+        '200':
+          description: 
+  /transfers/compleated:
+    get:
+      tags:
+        - transferencias
+      summary: Completed transfers
+      operationId: completed-transfers
+      responses:
+        '200':
+          description: 
+  /transfers/programed:
+    get:
+      tags:
+        - transferencias
+      summary: Programed transfers
+      operationId: programed-transfers
+      responses:
+        '200':
+          description: 
+  /carterasmedicas/report:
+    get:
+      tags:
+        - cartera_medica
+        - reportes
+      summary: Reporte Carteras Medicas
+      description: List Carteras Medicas
+      operationId: 606f988c17117b02624e7f93
+      parameters:
+        - name: apmNombre
+          in: query
+          schema:
+            type: ''
+        - name: apmApellido
+          in: query
+          schema:
+            type: ''
+        - name: doctorNombre
+          in: query
+          schema:
+            type: ''
+        - name: doctorApellido
+          in: query
+          schema:
+            type: ''
+        - name: matricula
+          in: query
+          schema:
+            type: ''
+        - name: enteEmisorId
+          in: query
+          schema:
+            type: ''
+        - name: especialidadId
+          in: query
+          schema:
+            type: ''
+        - name: inactivo
+          in: query
+          schema:
+            type: ''
+        - name: gerenteNombre
+          in: query
+          schema:
+            type: ''
+        - name: gerenteApellido
+          in: query
+          schema:
+            type: ''
+        - name: frecuencia
+          in: query
+          schema:
+            type: ''
+        - name: semaforo
+          in: query
+          schema:
+            enum:
+              - ''
+              - ''
+              - ''
+            type: ''
+        - name: provinciaId
+          in: query
+          schema:
+            type: ''
+        - name: localidadId
+          in: query
+          schema:
+            type: ''
+        - name: ciudadId
+          in: query
+          schema:
+            type: ''
+        - name: calleId
+          in: query
+          schema:
+            type: ''
+        - name: codigoPostal
+          in: query
+          schema:
+            type: ''
+        - name: institucionId
+          in: query
+          schema:
+            type: ''
+        - name: turno
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              example:
+                carterasMedicas:
+                  - apmApellido: LEGUIZAMON
+                    apmId: 1
+                    apmNombre: JUAN
+                    calleDireccion: 
+                    ciudadDireccion: 
+                    doctorApellido: SKULL
+                    doctorId: 2798
+                    doctorNombre: GAY
+                    enteEmisor: CHACO
+                    especialidadDoctor: 
+                    especialidadVisita: OFTALMOPEDIATRIA
+                    frecuencia: 4
+                    gerenteRegionalApellido: REGIONAL
+                    gerenteRegionalId: 2830
+                    gerenteRegionalNombre: GERENTE
+                    id: 24
+                    localidadDireccion: 
+                    matriculaNacional: '1597720'
+                    matriculaProvincial: '5363966'
+                    numeroDireccion: 
+                    prescripciones: 
+                    provinciaDireccion: 
+                    ultimaVisitaCartera: 
+                    visitasCiclo: 0
+                  - apmApellido: LEGUIZAMON
+                    apmId: 1
+                    apmNombre: JUAN
+                    calleDireccion: 
+                    ciudadDireccion: 
+                    doctorApellido: ROBBERTS
+                    doctorId: 2024
+                    doctorNombre: LUCIEN
+                    enteEmisor: FORMOSA
+                    especialidadDoctor: 
+                    especialidadVisita: CLINICA MEDICA
+                    frecuencia: 4
+                    gerenteRegionalApellido: REGIONAL
+                    gerenteRegionalId: 2830
+                    gerenteRegionalNombre: GERENTE
+                    id: 25
+                    localidadDireccion: 
+                    matriculaNacional: '8266320'
+                    matriculaProvincial: '9774302'
+                    numeroDireccion: 
+                    prescripciones: 
+                    provinciaDireccion: 
+                    ultimaVisitaCartera: 
+                    visitasCiclo: 0
+                  - apmApellido: LEGUIZAMON
+                    apmId: 1
+                    apmNombre: JUAN
+                    calleDireccion: 
+                    ciudadDireccion: 
+                    doctorApellido: GABBETT
+                    doctorId: 2480
+                    doctorNombre: JENN
+                    enteEmisor: FORMOSA
+                    especialidadDoctor: 
+                    especialidadVisita: NEFROLOGIA
+                    frecuencia: 1
+                    gerenteRegionalApellido: REGIONAL
+                    gerenteRegionalId: 2830
+                    gerenteRegionalNombre: GERENTE
+                    id: 26
+                    localidadDireccion: 
+                    matriculaNacional: '1959648'
+                    matriculaProvincial: '1349980'
+                    numeroDireccion: 
+                    prescripciones: 
+                    provinciaDireccion: 
+                    ultimaVisitaCartera: 
+                    visitasCiclo: 0
+                paginas: 19522
+                total: 58565
+                totalCarteras: 58574
+  /apms/conexiones/report:
+    get:
+      tags:
+        - reportes
+      summary: Reporte de conexiones por ciclo
+      operationId: reporte-de-conexiones-por-ciclo
+      parameters:
+        - name: ciclo
+          in: query
+          schema:
+            type: ''
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: apellido
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /agendas/export/visitas/exitosas:
+    get:
+      tags:
+        - reportes
+      summary: Reporte Visitas Exitosas
+      operationId: reporte-visitas-exitosas
+      parameters:
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: apellido
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /agendas/export/parte_diario:
+    get:
+      tags:
+        - reportes
+      summary: Bajar Reporte Parte Diario
+      operationId: bajar-reporte-parte-diario
+      parameters:
+        - name: nombre
+          in: query
+          schema:
+            type: ''
+        - name: apellido
+          in: query
+          schema:
+            type: ''
+        - name: ciclo
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /token/valid:
+    get:
+      summary: Validate token
+      operationId: validate-token
+      parameters:
+        - name: token
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /authenticate/logout:
+    post:
+      summary: APM Logout
+      operationId: apm-logout
+      responses:
+        '200':
+          description: 
+  /validate/session:
+    get:
+      summary: Validate active session apm
+      operationId: validate-active-session-apm
+      parameters:
+        - name: user
+          in: query
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

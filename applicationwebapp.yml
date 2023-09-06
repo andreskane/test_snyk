@@ -1,0 +1,137 @@
+logging:
+  level:
+    ar.elea: DEBUG
+    org.springframework: error
+  pattern:
+    console: "%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{${LOG_LEVEL_PATTERN:%5p}} %clr{${PID: }}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40logger{39}}{cyan} %clr{:}{faint} %clr{(REQUEST-ID: %X{${elea-apx-backend.apx.slf4j-filter.mdc_request_id_key:Slf4jMDCFilter.UUID}})}{blue} %clr{(USER: (ID: %X{elea.user.id}, NAME: %X{elea.user.name}))}{yellow} %m%n"
+
+spring:
+  datasource:
+    url: #{spring-datasource-url}#
+    username: #{spring-datasource-username}#
+    password: #{spring-datasource-password}#
+    driverClassName: #{datasource-driverClassName}#
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: #{hibernate-dialect}#
+      ddl-auto: none
+      naming:
+        physical-strategy: #{physical-strategy}#
+    properties:
+      hibernate:
+        proc:
+          param_null_passing: true
+  flyway:
+    enabled: true
+    url: #{spring-datasource-url}#
+    username: #{spring-datasource-username}#
+    password: #{spring-datasource-password}#
+  mail:
+    host: #{mail-host}#
+    port: #{mail-port}#
+    username: #{spring-mail-username}#
+    password: #{spring-mail-password}#
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: -1
+      max-request-size: -1
+  cache:
+    type: redis
+  redis:
+    host: #{redis-host}#
+    port: #{redis-port}#
+    password: #{redis-password}#
+    ssl: #{redis-ssl}#
+
+jwt:
+  secret: "jwt-secret"
+
+elea-apx-backend:
+  apx:
+    dias_registro_visita: #{dias-registro-visita}#
+    cron_expression_update_days: "0 0 1 * * ?"
+  loyalty:
+    cron_expresion_loyalty: "0 0 0 1 * *"
+  features:
+    horas_aprobacion_previsto: #{horas-aprobacion-previsto}#
+    horas_dia_laboral: #{horas-dia-laboral}#
+  notifications:
+    cron_expression_feedback: #{cron-generacion-solicitud-feedback}#
+    dias_espera_feedback: #{dias-solicitud-feedback}#
+  transferencias:
+    cron_expression_transfers: #{cron-ejecucion-transferencias}#
+  security:
+    ad:
+      clientId: #{ad-clientId}#
+      clientSecret: #{elea-apx-backend-security-ad-clientsecret}#
+      tenantId: #{ad-tenantId}#
+      authority: #{ad-authority}#
+      scope: #{ad-scope}#
+      usernameSuffix: "@elea.com"
+    support_email:
+      email: #{email-globant}#
+      asunto: Solicitud de recupero de contraseña
+      texto: El usuario %s solicitó blanquear su contraseña en la Aplicación APX
+    ignoredEndpoints:
+      - method: GET
+        endpoint: /provincias
+      - method: GET
+        endpoint: /especialidades
+      - method: POST
+        endpoint: /notificaciones/email
+  ued:
+    host: #{ued-host}#
+    apis:
+      events:
+        endpoint: #{ued-endpoint}#
+    cron_expression: "0 */60 * * * *"
+  geocode:
+    host: https://geocode.search.hereapi.com/
+    apis:
+      direcciones:
+        endpoint: https://geocode.search.hereapi.com/v1/geocode?in=countryCode:ARG&apiKey=y43GJ0aEqmaiyo6amDuh9QHuRJcA49777xnED3ruhUs
+  promotional_materials:
+    subject: Solicitud de material promocional para el APM %s
+    text: El APM %s está solicitando el(los) siguiente(s) material(es) promocional(es)
+    maxFileSize: 25
+  plannification_notification:
+    titulo: Recuerde completar su planificación para los próximos días
+  geodata:
+    reports:
+      storage:
+        connectionString: #{azure-storage-connection-string}#
+        containerName: #{geodata-container-name}#
+      linkTTL: #{geodata-link-ttl}#
+      pathPrefixTemplates:
+        - #{geodata-interior-path-prefix-template}#
+        - #{geodata-interior-path-prefix-template-alias}#
+        - #{geodata-metro-path-prefix-template}#
+        - #{geodata-metro-path-prefix-template-alias}#
+  slf4j-filter:
+    request_header: 'X-Header-Request-ID'
+    response_header: 'X-Header-Response-ID'
+    mdc_request_id_key: 'Slf4jMDCFilter.UUID'
+  redis:
+    list_dias_no_laborables:
+      name: "listDiasNoLaborales"
+      ttl: 30
+      unit: "DAYS"
+    ciclosCacheNames:
+      - 'getCiclo'
+      - 'getCicloForMesAndAno'
+      - 'getCiclosGeodata'
+      - 'getCiclos'
+    fideleaCacheNames:
+      - 'getUsoAppMayusculas'
+      - 'CodeBookFideleaServiceImpl.findAll'
+
+azure:
+  application-insights:
+    instrumentation-key: #{azure-instrumentation-key}#
+  storage:
+    account-name: #{azure-storage-account-name}#
+    account-key: #{azure-storage-account-key}#
