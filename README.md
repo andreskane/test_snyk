@@ -2,7 +2,7 @@
  
 ### Reglas de Calidad de código
 
-#### Test unitarios
+#### Test unitarios 
 ##### Estructura
 
     void test_<metodo_a_probar>_<escenario>() { //ejemplo test_authenticate_ok
