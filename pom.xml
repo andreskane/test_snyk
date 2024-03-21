@@ -39,7 +39,7 @@
 		<spring-boot-starter-mail.version>2.3.5.RELEASE</spring-boot-starter-mail.version>
 		<microsoft-graph.version>1.7.1</microsoft-graph.version>
 		<microsoft-graph-auth.version>0.2.0</microsoft-graph-auth.version>
-		<spring-boot-starter-webflux.version>3.2.0</spring-boot-starter-webflux.version>
+		<spring-boot-starter-webflux.version>3.2.4</spring-boot-starter-webflux.version>
 		<commons-csv.version>1.8</commons-csv.version>
 		<commons-collections4.version>4.4</commons-collections4.version>
 		<applicationinsights-spring-boot-starter.version>2.6.3</applicationinsights-spring-boot-starter.version>
